@@ -17,17 +17,26 @@ import React, { Component } from "react";
 // }
 
 const App = () => {
+  const profiles = [{ name: "Taroaa", age: 10 }, { name: "hanako" }];
   return (
     <div>
-      <Neko />
-      <Neko />
-      <Neko />
+      {profiles.map((profile, index) => {
+        return <User name={profile.name} age={profile.age} key={index} />;
+      })}
     </div>
   );
 };
 
-const Neko = () => {
-  return <div>nyan</div>;
+const User = props => {
+  return (
+    <div>
+      name = {props.name}, and age={props.age}
+    </div>
+  );
+};
+
+User.defaultProps = {
+  age: 1
 };
 
 export default App;
